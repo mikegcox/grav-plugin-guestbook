@@ -98,7 +98,18 @@ By default, in the `user/data/guestbook` folder.
 
 # Visualize messages
 
-You can view messages through the `Data Manager` Plugin.
+You can view messages through the `Data Manager` Plugin but you will need to comment out the following lines of the `guestbook.php` file.
+
+```
+/**
+     * Exclude comments from the Data Manager plugin
+     */
+    public function onDataTypeExcludeFromDataManagerPluginHook()
+    {
+        $this->grav['admin']->dataTypesExcludedFromDataManagerPlugin[] = 'guestbook';
+    }
+    
+ ```
 
 # Email notifications
 
